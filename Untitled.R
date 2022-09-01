@@ -57,3 +57,13 @@ sqrt(var(y))
 
 
 # Graphics
+x = rnorm(100)
+y = rnorm(100)
+plot(x,y)
+plot(x, y, xlab="this is x-axis", ylab="this is y-axis")
+
+
+# Creating plot pdf file
+pdf("FigurePlot.pdf")
+plot(x,y,col="green")
+dev.off()
