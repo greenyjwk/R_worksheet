@@ -22,3 +22,38 @@ y <- c(10, 20, 30, 40)
 
 length(x)
 length(y)
+x+y
+
+rm(x,y)
+ls()
+rm(list = ls())
+ls()
+
+?matrix
+
+x2=matrix(data=c(1,2,3,4), 2, 2)
+x2
+
+x3 = matrix( data=c(1,2,3,4,5,6), 3, 3,byrow=TRUE)
+x3
+sqrt(x3)
+
+x = rnorm(50)
+x
+
+y = x + rnorm(x, mean=50, sd=0.1)
+y
+
+cor(x,y)
+
+set.seed(1303)
+rnorm(50)
+
+set.seed(3)
+y=norm(100)
+mean(y)
+var(y)
+sqrt(var(y))
+
+
+# Graphics
