@@ -1,4 +1,4 @@
-# r_worksheet
+# R Worksheet
 
 Statistical Machine Learning source codes using R Script
 
