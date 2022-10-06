@@ -31,7 +31,7 @@ glm.probs[1:10]
 
 contrasts(Direction)
 
-glm.pred = rep("Down", 1250)                    
+glm.pred = rep("Down", 1250)         
 # Creating 1250 numbers of Down array
 
 glm.pred[glm.probs>.5] = "Up"
@@ -50,5 +50,18 @@ Direction.2005 = Direction[!train]
 
 glm.fit = glm(Direction~Lag1 + Lag2 + Lag3 + Lag4 + Lag4 + Lag5 + Volume, data= Smarket, family=binomial, subset=train)
 glm.probs = predict(glm.fit, Smarket.2005, type = "response")
+glm.pred = rep("Down", 252)
+glm.pred[glm.probs>.5] = "Up"
+table(glm.pred,  Direction.2005)
+mean(glm.pred == Direction.2005)
 
 
+# how to improve? Let's select relatively imporatant features
+glm.fit = glm(Direction~Lag1 + Lag2, data= Smarket, family=binomial, subset=train)
+glm.probs = predict(glm.fit, Smarket.2005, type = "response")
+glm.pred = rep("Down", 252)
+glm.pred[glm.probs>.5] = "Up"
+table(glm.pred,  Direction.2005)
+mean(glm.pred == Direction.2005)
+
+predict(glm.fit, newdata=data.frame(Lag1=c(1.2,1.5), Lag2=c(1.1,-0.8)), type="response" )
